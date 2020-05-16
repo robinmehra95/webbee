@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './styles.scss';
+import './styles.css';
 
 class Input extends Component {
     constructor() {
@@ -19,11 +19,9 @@ class Input extends Component {
 
     // to deactivate input only if it's empty
     disableFocus = e => {
-        const { name } = e.target;
         if (e.target.value === '') {
             this.setState({ fieldActive: false });
         }
-        this.props.validateInput(name);
     }
 
     // to update the changes in the input and activate it

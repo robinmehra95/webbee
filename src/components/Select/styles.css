@@ -1,0 +1,12 @@
+select {
+    width: 100%;
+    border: none;
+    border: 1px dashed #919191;
+    background: transparent;
+    border-radius: 0px;
+    outline: none;
+}
+
+.input-select-group {
+    display: flex;
+}

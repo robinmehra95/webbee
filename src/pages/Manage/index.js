@@ -5,7 +5,7 @@ import { bindActionCreators } from "redux";
 import { addEquipmentType } from '../../actions/equipmentType';
 import { Button } from 'react-bootstrap';
 import ManageCard from '../../components/ManageCard';
-import './index.scss';
+import './styles.css';
 
 class Manage extends React.Component {
     constructor(props) {
@@ -21,8 +21,8 @@ class Manage extends React.Component {
             objectTitle: '',
             fields: [
                 {
-                    value: '',
-                    type: 'small'
+                    type: '',
+                    name: '',
                 }
             ]
         }
@@ -31,16 +31,22 @@ class Manage extends React.Component {
         this.props.addEquipmentType(equipments);
     };
 
+    handleDataChange = (data, key) => {
+        const { equipments } = this.props;
+        equipments[key] = data;
+        this.setState({ equipmentsTypes: equipments });
+        this.props.addEquipmentType(equipments);
+    };
+
     render () {
         const { equipmentsTypes } = this.state;
-        // let data = {}
-        console.log('equipments', equipmentsTypes);
-        const cards = equipmentsTypes.map((item, key) => {
-            return <ManageCard key={key} data={ item } />
-        });
+        let cards = [];
+        for(let i = 0; i < equipmentsTypes.length; i++) {
+            cards.push(<ManageCard key={i} data={equipmentsTypes[i]} index={i} handleDataChange={this.handleDataChange} />);
+        }
         return (
             <div className="manage-wrapper">
-                <Button type="button" onClick={this.addType}>ADD TYPE</Button>
+                <Button className="add-type" type="button" onClick={this.addType}>ADD TYPE</Button>
                 <div className="type-cards">
                     {cards}
                 </div>

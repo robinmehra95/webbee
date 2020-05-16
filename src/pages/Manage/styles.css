@@ -1,0 +1,20 @@
+.manage-wrapper {
+  padding: 1rem;
+  text-align: center;
+}
+
+.add-type {
+  width: 50%;
+}
+
+.type-cards {
+  display: flex;
+  margin: 10px;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 1024px) {
+  .type-cards {
+    flex-direction: column;
+  }
+}

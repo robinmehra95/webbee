@@ -1,0 +1,17 @@
+.manage-card {
+    margin: 1rem;
+    border-radius: 10px;
+    min-width: 250px;
+    box-shadow: 0 0 10px rgba(188,188,188,0.54);
+    opacity: 0.8;
+    padding: 20px;
+    text-align: left;
+}
+
+.manage-card .input-group-field {
+    margin: 20px 0;
+}
+
+.manage-card label {
+    color: #919191;
+}

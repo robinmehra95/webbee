@@ -1,0 +1,34 @@
+/* initially label is below input */
+.input {
+  position: relative;
+  font-size: 14px;
+}
+
+.input label {
+  display: inline-block;
+  position: absolute;
+  transition: all 150ms ease-in;
+  color: #919191;
+}
+label
+.floating-label {
+  -webkit-appearance: none !important;
+}
+
+.input label.label-active {
+   transform: translateY(-25px);
+   font-size: 10px;
+   color: #bcbcbc;
+   text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff;
+ }
+input {
+  border: none;
+  color: #0a1524;
+  border-bottom: 1px solid #919191;
+  padding: 5px 2px;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
