@@ -26,10 +26,10 @@ class Input extends Component {
 
     // to update the changes in the input and activate it
     updateInputValue = e => {
-        const { onChange } = this.props
+        const { onChange, index } = this.props
         this.activateField(e);
         e.preventDefault();
-        onChange(e);
+        onChange(e, index);
     }
 
     render() {

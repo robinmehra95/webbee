@@ -1,4 +1,4 @@
-.manage-card {
+.equipment-card {
     margin: 1rem;
     border-radius: 10px;
     min-width: 250px;
@@ -8,10 +8,15 @@
     text-align: left;
 }
 
-.manage-card .input-group-field {
+.equipment-card .input-group-field {
     margin: 20px 0;
 }
+.equipment-card-head  {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
 
-.manage-card label {
+.equipment-card label {
     color: #919191;
 }

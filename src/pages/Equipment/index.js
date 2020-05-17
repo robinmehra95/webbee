@@ -54,6 +54,13 @@ class Home extends React.Component {
         this.props.addEquipments(data)
     };
 
+    handleDataChange = (data, key) => {
+        const { equipmentList } = this.props;
+        equipmentList[key] = data;
+        this.setState({ data: equipmentList });
+        this.props.addEquipments(equipmentList);
+    };
+
     render () {
         const { match: { params }, equipmentList } = this.props;
         let cards = [];
@@ -66,7 +73,6 @@ class Home extends React.Component {
         }
         return (
             <div className="equipment-wrapper">
-
                 <Button className="add-equipment" onClick={this.addEquipment}>ADD {params.equipment}</Button>
                 <div className="equipment-cards">
                     {cards}

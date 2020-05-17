@@ -4,11 +4,13 @@
 }
 
 .add-equipment {
-    width: 50%;
+    width: 51%;
+    margin: 10px;
 }
 
 .equipment-cards {
     display: flex;
     margin: 10px;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
