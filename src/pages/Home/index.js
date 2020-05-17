@@ -51,18 +51,23 @@ class Home extends React.Component {
     handleDataChange = (data, key) => {
         const { equipments } = this.props;
         equipments[key] = data;
-        // this.setState({ data: equipmentList });
+        this.props.addEquipments(equipments);
+    };
+
+    handleRemove = key => {
+        const { equipments } = this.props;
+        equipments.splice(key, 1);
+        this.setState({data: equipments});
         this.props.addEquipments(equipments);
     };
 
     render () {
         const { equipments } = this.props;
-        console.log('equip', equipments);
         const buttons = [];
         const cards = [];
         for (let i = 0; i < equipments.length; i++) {
             cards.push(
-                <EquipmentCard key={i} data={equipments[i]} index={i} handleDataChange={this.handleDataChange} />
+                <EquipmentCard key={i} data={equipments[i]} index={i} handleRemove={this.handleRemove} handleDataChange={this.handleDataChange} />
             )
             if(!buttons.includes(equipments[i].type)) {
                 buttons.push(equipments[i].type);

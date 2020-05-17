@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 
-import { addEquipmentType } from '../../actions/equipmentType';
+import {addEquipments, addEquipmentType} from '../../actions/equipmentType';
 import { Button } from 'react-bootstrap';
 import ManageCard from '../../components/ManageCard';
 import './styles.css';
@@ -38,11 +38,31 @@ class Manage extends React.Component {
         this.props.addEquipmentType(equipments);
     };
 
+    handleRemove = key => {
+        const { equipments, equipmentList } = this.props;
+        const objectType = equipments[key].objectType
+        equipments.splice(key, 1);
+        const newEquipmentList = equipmentList.filter((item) => {
+            return item.type !== objectType
+        });
+        this.setState({equipments});
+        this.props.addEquipmentType(equipments);
+        this.props.addEquipments(newEquipmentList);
+    };
+
     render () {
         const { equipmentsTypes } = this.state;
         let cards = [];
         for(let i = 0; i < equipmentsTypes.length; i++) {
-            cards.push(<ManageCard key={i} data={equipmentsTypes[i]} index={i} handleDataChange={this.handleDataChange} />);
+            cards.push(
+                <ManageCard
+                    key={i}
+                    data={equipmentsTypes[i]}
+                    index={i}
+                    handleDataChange={this.handleDataChange}
+                    handleRemove={this.handleRemove}
+                />
+            );
         }
         return (
             <div className="manage-wrapper">
@@ -58,13 +78,15 @@ class Manage extends React.Component {
 function mapStateToProps(state) {
     return {
         equipments: state.EquipmentsTypeReducer.equipments,
+        equipmentList: state.EquipmentsTypeReducer.equipmentsList,
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(
         {
-            addEquipmentType
+            addEquipmentType,
+            addEquipments
         },
         dispatch
     );

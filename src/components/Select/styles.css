@@ -1,7 +1,7 @@
 select {
     width: 100%;
     border: none;
-    border: 1px dashed #919191;
+    border: 1px dotted #919191;
     background: transparent;
     border-radius: 0px;
     outline: none;

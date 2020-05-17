@@ -2,6 +2,7 @@ import React from 'react';
 
 import Input from '../../components/Input';
 import './index.css';
+import {Button} from "react-bootstrap";
 
 export default class EquipmentCard extends React.Component {
 
@@ -24,7 +25,7 @@ export default class EquipmentCard extends React.Component {
     };
 
     render () {
-        const { data } = this.props;
+        const { data, index, handleRemove } = this.props;
         const { fields } = data;
         const fieldsList = [];
         for(let i = 0; i < fields.length; i++) {
@@ -45,7 +46,7 @@ export default class EquipmentCard extends React.Component {
             <div className="equipment-card">
                 <div className="equipment-card-head">
                     <span>{data.type} - {data.fields[0].value}</span>
-                    <span className="remove">X</span>
+                    <Button variant="outline-danger" onClick={() => handleRemove(index)} className="remove">X</Button>
                 </div>
                 {fieldsList}
             </div>

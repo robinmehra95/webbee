@@ -14,6 +14,13 @@
   justify-content: space-evenly;
 }
 
+.manage-card-head  {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
 @media only screen and (max-width: 1024px) {
   .type-cards {
     flex-direction: column;

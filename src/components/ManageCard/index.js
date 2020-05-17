@@ -38,7 +38,7 @@ export default class ManageCard extends React.Component {
     };
 
     render () {
-        const { data } = this.props;
+        const { data, handleRemove, index } = this.props;
         const { objectType, objectTitle, fields } = this.state;
         const fieldsList = [];
         for(let i = 0; i < fields.length; i++) {
@@ -50,7 +50,10 @@ export default class ManageCard extends React.Component {
         }
         return (
             <div className="manage-card">
-                <div className="manage-card-head">{data.objectType}</div>
+                <div className="manage-card-head">
+                    <span>{data.objectType}</span>
+                    <Button variant="outline-danger" onClick={() => handleRemove(index)} className="remove">X</Button>
+                </div>
                 <div className="input-group-field">
                     <Input
                         type="text"

@@ -61,13 +61,26 @@ class Home extends React.Component {
         this.props.addEquipments(equipmentList);
     };
 
+    handleRemove = key => {
+        const { equipmentList } = this.props;
+        equipmentList.splice(key, 1);
+        this.setState({equipmentList});
+        this.props.addEquipments(equipmentList);
+    };
+
     render () {
         const { match: { params }, equipmentList } = this.props;
         let cards = [];
         for (let i = 0; i < equipmentList.length; i++) {
             if(equipmentList[i].type === params.equipment) {
                 cards.push(
-                    <EquipmentCard key={i} data={equipmentList[i]} index={i} handleDataChange={this.handleDataChange} />
+                    <EquipmentCard
+                        key={i}
+                        data={equipmentList[i]}
+                        index={i}
+                        handleDataChange={this.handleDataChange}
+                        handleRemove={this.handleRemove}
+                    />
                 )
             }
         }
