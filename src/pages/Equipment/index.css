@@ -1,0 +1,14 @@
+.equipment-wrapper {
+    padding: 1rem;
+    text-align: center;
+}
+
+.add-equipment {
+    width: 50%;
+}
+
+.equipment-cards {
+    display: flex;
+    margin: 10px;
+    flex-wrap: wrap;
+}

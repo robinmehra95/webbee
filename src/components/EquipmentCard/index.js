@@ -6,7 +6,7 @@ import Select from '../../components/Select';
 import { Button } from 'react-bootstrap';
 import './index.css';
 
-export default class ManageCard extends React.Component {
+export default class EquipmentCard extends React.Component {
 
     constructor(props) {
         super(props);
@@ -39,6 +39,7 @@ export default class ManageCard extends React.Component {
 
     render () {
         const { data } = this.props;
+        console.log('fsfds', this.props.data)
         const { objectType, objectTitle, fields } = this.state;
         const fieldsList = [];
         for(let i = 0; i < fields.length; i++) {

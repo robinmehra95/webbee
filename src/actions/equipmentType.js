@@ -6,3 +6,12 @@ export const addEquipmentType = (params) => {
         });
     };
 };
+
+export const addEquipments = (params) => {
+    return function(dispatch) {
+        return dispatch({
+            type: 'ADD_EQUIPMENTS',
+            payload: params
+        });
+    };
+};
